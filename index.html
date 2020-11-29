@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>드래그가 가능한 스크롤</title>
+    <link rel="stylesheet" href="./build/style.css">
+    <link rel="stylesheet" href="./build/hScrollDrag.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="inner">
+            <div class="h-scroll-wrapper dragZone_01">
+                <div class="h-scroll-container">
+                    <table class="type09">
+                        <thead>
+                            <tr>
+                                <th scope="cols">타이틀</th>
+                                <th scope="cols">내용</th>
+                                <th scope="cols">내용</th>
+                                <th scope="cols">내용</th>
+                                <th scope="cols">내용</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">항목명</th>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">항목명</th>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">항목명</th>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="h-scroll-wrapper dragZone_02">
+                <div class="h-scroll-container">
+                    <table class="type09">
+                        <thead>
+                            <tr>
+                                <th scope="cols">타이틀</th>
+                                <th scope="cols">내용</th>
+                                <th scope="cols">내용</th>
+                                <th scope="cols">내용</th>
+                                <th scope="cols">내용</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">항목명</th>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">항목명</th>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">항목명</th>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="h-scroll-wrapper dragZone_03">
+                <div class="h-scroll-container">
+                    <table class="type09">
+                        <thead>
+                            <tr>
+                                <th scope="cols">타이틀</th>
+                                <th scope="cols">내용</th>
+                                <th scope="cols">내용</th>
+                                <th scope="cols">내용</th>
+                                <th scope="cols">내용</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">항목명</th>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">항목명</th>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">항목명</th>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                                <td>내용이 들어갑니다.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./build/hScrollDrag.min.js"></script>
+    <script>
+        var dragZone_01 = new hScrollDrag('.dragZone_01');
+        var dragZone_02 = new hScrollDrag('.dragZone_02', 0.2, 'noScrollBar');
+        var dragZone_03 = new hScrollDrag('.dragZone_03', 2);
+    </script>
+</body>
+
+</html>

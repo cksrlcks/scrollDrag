@@ -1,0 +1,14 @@
+.h-scroll-wrapper.h-scroll-init {
+    overflow-x: scroll;
+    cursor: pointer;
+}
+.h-scroll-wrapper.no-scroll-bar {
+    /*FireFox*/
+    scrollbar-width: none;
+    /*IE10+*/
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+.h-scroll-wrapper.no-scroll-bar::-webkit-scrollbar {
+    /*Chrome, Safari, Edge*/
+    display: none;
+}

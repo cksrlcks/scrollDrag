@@ -1,0 +1,43 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.inner {
+    max-width: 600px;
+    margin: 80px auto;
+}
+.h-scroll-wrapper + .h-scroll-wrapper {
+    margin-top: 100px;
+}
+table.type09 {
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    table-layout: fixed;
+    min-width: 1200px;
+}
+table.type09 thead th {
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #369;
+    border-bottom: 3px solid #036;
+}
+table.type09 tbody th {
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    background: #f3f6f7;
+}
+table.type09 td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
+
+table.type09 td + td {
+    border-left: 1px solid #ccc;
+}
