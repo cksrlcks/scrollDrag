@@ -1,12 +1,12 @@
 class hScrollDrag {
 
-    constructor(target, acc, scrollbar){
+    constructor(target, options){
         this.isDown = false;
         this.startX;
         this.cal_scroll;
         this.isDragged = false;
-        this.acc = acc || 1;
-        this.scrollbar = scrollbar || '';
+        this.acc = options && options.acc || 1;
+        this.scrollbar = options && options.scrollBar;
         this.slider = document.querySelector(target);
         this.item = this.slider.querySelector('.h-scroll-container');
 
@@ -16,18 +16,17 @@ class hScrollDrag {
         this.setScrollbarStyle();
 
         /* add event handler */
-        this.slider.addEventListener('mousedown', this.mousedownHandler.bind(this))
-        this.slider.addEventListener('mouseleave', this.mouseleaveHandler.bind(this))
-        this.slider.addEventListener('mouseup', this.mouseupHandler.bind(this))
-        this.slider.addEventListener('mousemove', this.mousemoveHandler.bind(this))
-
+        this.slider.addEventListener('mousedown', (e) => this.mousedownHandler(e))
+        this.slider.addEventListener('mouseleave', (e) => this.mouseleaveHandler(e))
+        this.slider.addEventListener('mouseup', (e) => this.mouseupHandler(e))
+        this.slider.addEventListener('mousemove', (e) => this.mousemoveHandler(e))
     }
     setStyle(){
         this.slider.classList.add('h-scroll-init');
     }
     
     setScrollbarStyle() {
-        if(this.scrollbar == 'noScrollBar'){
+        if(this.scrollbar == 'undefined' || this.scrollbar == false){
             this.slider.classList.add('no-scroll-bar')
         }
     }
@@ -51,21 +50,23 @@ class hScrollDrag {
         this.slider.classList.add('is-dragging');
         this.startX = e.pageX - this.slider.offsetLeft;
         this.cal_scroll = this.slider.scrollLeft;
+
+
     }
 
     mouseleaveHandler () {
         this.isDown = false;
         this.slider.classList.remove('is-dragging');
+
     }
 
     mouseupHandler (e) {
         this.isDown = false;
-        this.event = e
 
         if(this.isDragged){
-            this.item.addEventListener('click', this.preventClick.bind(this))
+            this.item.addEventListener('click', this.preventClick)
         }else{
-            this.item.removeEventListener('click', this.preventClick.bind(this))
+            this.item.removeEventListener('click', this.preventClick)
         }
 
         this.slider.classList.remove('is-dragging');
@@ -74,13 +75,18 @@ class hScrollDrag {
 
     mousemoveHandler (e) {
         if (!this.isDown) return;
-        e.preventDefault();
+       
         this.isDragged = true;
+        e.preventDefault();
 
         const x = e.pageX - this.slider.offsetLeft;
         const walk = (x - this.startX) * this.acc;
 
         this.slider.scrollLeft = this.cal_scroll - walk;
+    }
+
+    moveTo(x){
+        this.slider.scrollLeft = x;
     }
 
 

@@ -95,7 +95,7 @@
                     <table class="type09">
                         <thead>
                             <tr>
-                                <th scope="cols">타이틀</th>
+                                <th scope="cols"><a href="http://naver.com">네이버</a></th>
                                 <th scope="cols">내용</th>
                                 <th scope="cols">내용</th>
                                 <th scope="cols">내용</th>
@@ -128,13 +128,96 @@
                     </table>
                 </div>
             </div>
+
+            <div class="h-scroll-wrapper menu-bar">
+                <div class="h-scroll-container">
+                    <ul>
+                        <li><a href="#" data-menu="0">카테고리 1</a></li>
+                        <li><a href="#" data-menu="1">카테고리 2</a></li>
+                        <li><a href="http://naver.com" target="_blank" data-menu="2">카테고리 3</a></li>
+                        <li><a href="#" data-menu="3">카테고리 4</a></li>
+                        <li><a href="#" data-menu="4">카테고리 5</a></li>
+                        <li><a href="#" data-menu="5">카테고리 6</a></li>
+                        <li><a href="#" data-menu="6">카테고리 7</a></li>
+                        <li><a href="#" data-menu="7">카테고리 8</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="btn-wrapper">
+                <button class="btn" data-btn-idx="0">카테고리 1</button>
+                <button class="btn" data-btn-idx="1">카테고리 2</button>
+                <button class="btn" data-btn-idx="2">카테고리 3</button>
+                <button class="btn" data-btn-idx="3">카테고리 4</button>
+                <button class="btn" data-btn-idx="4">카테고리 5</button>
+                <button class="btn" data-btn-idx="5">카테고리 6</button>
+                <button class="btn" data-btn-idx="6">카테고리 7</button>
+                <button class="btn" data-btn-idx="7">카테고리 8</button>
+            </div>
+            
         </div>
     </div>
     <script src="./build/hScrollDrag.min.js"></script>
     <script>
         var dragZone_01 = new hScrollDrag('.dragZone_01');
-        var dragZone_02 = new hScrollDrag('.dragZone_02', 0.2, 'noScrollBar');
-        var dragZone_03 = new hScrollDrag('.dragZone_03', 2);
+        var dragZone_02 = new hScrollDrag('.dragZone_02', {
+            acc : 0.2,
+            scrollBar : false
+        });
+        var dragZone_03 = new hScrollDrag('.dragZone_03', {
+            acc : 2,
+            scrollBar : true
+        });
+        var menuBar = new hScrollDrag('.menu-bar', {
+            scrollBar : false
+        });
+
+        var btnWrapper = document.querySelector('.btn-wrapper');
+
+        btnWrapper.addEventListener('click', function(e){
+
+            if(!e.target.getAttribute('data-btn-idx')) return;
+
+            var idx = e.target.getAttribute('data-btn-idx');
+            var menu = document.querySelector('.menu-bar');
+            var menuItem = document.querySelectorAll('.menu-bar ul li');
+            var menuLeftOffset = menuItem[idx].offsetLeft;
+            var menuBarOffset = menu.offsetLeft;
+
+            for(var i=0; i < menuItem.length; i++){
+                menuItem[i].querySelector('a').classList.remove('active')
+            }
+            menuItem[idx].querySelector('a').classList.add('active')
+            menuBar.moveTo(menuLeftOffset - menuBarOffset - 80);
+
+        })
+
+        var menuWrapper = document.querySelector('.menu-bar')
+
+        menuWrapper.addEventListener('click', function(e){
+            
+            if(!e.target.getAttribute('data-menu')) return;
+
+            if(e.target.getAttribute('href') == '#'){
+                e.preventDefault();
+            }
+
+            var idx = e.target.getAttribute('data-menu');
+            var menu = document.querySelector('.menu-bar');
+            var menuItem = document.querySelectorAll('.menu-bar ul li');
+            var menuLeftOffset = menuItem[idx].offsetLeft;
+            var menuBarOffset = menu.offsetLeft;
+
+            for(var i=0; i < menuItem.length; i++){
+                menuItem[i].querySelector('a').classList.remove('active')
+            }
+            menuItem[idx].querySelector('a').classList.add('active')
+            menuBar.moveTo(menuLeftOffset - menuBarOffset - 80);
+
+
+        })
+
+        
     </script>
 </body>
 
